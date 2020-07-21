@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  LeagueScheduleVC.swift
 //  SchedulingApp
 //
-//  Created by Dan Brown on 7/19/20.
+//  Created by Dan Brown on 7/20/20.
 //  Copyright © 2020 Dan Brown. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class LeagueScheduleVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

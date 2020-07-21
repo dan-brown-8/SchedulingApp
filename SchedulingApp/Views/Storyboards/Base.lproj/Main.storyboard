@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gg5-7A-JHn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scheduling-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LeagueOverviewVC" customModule="SchedulingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="LeagueOverviewView" customModule="SchedulingApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjA-DR-BbX">
+                                <rect key="frame" x="60" y="717" width="294" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="MWC-s9-0xr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <state key="normal" title="League Schedule">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wcc-a3-Rbb" kind="show" identifier="toLeagueSchedule" id="f5v-C0-PUs"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Pool" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DdT-Ss-wVz">
+                                <rect key="frame" x="137" y="113" width="140" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="L6I-Vc-85X"/>
+                                    <constraint firstAttribute="height" constant="35" id="oRx-Xg-hWb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="37" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4QE-wd-jIV">
+                                <rect key="frame" x="20" y="173" width="374" height="469"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cell" id="JGZ-Or-GLf" customClass="LeagueOverviewTableViewCell" customModule="SchedulingApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="50.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JGZ-Or-GLf" id="4wk-Ny-oub">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gui-nF-RcN" userLabel="Team Name Label">
+                                                    <rect key="frame" x="15" y="0.0" width="225" height="50.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="225" id="ewo-qn-lkj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baC-mW-SjZ" userLabel="Details Button">
+                                                    <rect key="frame" x="250" y="10" width="114" height="30.5"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
+                                                    <state key="normal" title="Details">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="detailsButtonTapped:" destination="JGZ-Or-GLf" eventType="touchUpInside" id="Iik-6E-u21"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gui-nF-RcN" firstAttribute="top" secondItem="4wk-Ny-oub" secondAttribute="top" id="4GZ-V0-oS4"/>
+                                                <constraint firstItem="baC-mW-SjZ" firstAttribute="top" secondItem="4wk-Ny-oub" secondAttribute="top" constant="10" id="JSe-HK-csZ"/>
+                                                <constraint firstItem="Gui-nF-RcN" firstAttribute="leading" secondItem="4wk-Ny-oub" secondAttribute="leading" constant="15" id="L8z-de-kso"/>
+                                                <constraint firstAttribute="bottom" secondItem="baC-mW-SjZ" secondAttribute="bottom" constant="10" id="Vnh-kl-2hl"/>
+                                                <constraint firstAttribute="trailing" secondItem="baC-mW-SjZ" secondAttribute="trailing" constant="10" id="eV5-Qu-eBM"/>
+                                                <constraint firstAttribute="bottom" secondItem="Gui-nF-RcN" secondAttribute="bottom" id="tfp-Fj-qWn"/>
+                                                <constraint firstItem="baC-mW-SjZ" firstAttribute="leading" secondItem="Gui-nF-RcN" secondAttribute="trailing" constant="10" id="vJo-hH-HCI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="detailsButton" destination="baC-mW-SjZ" id="kob-Bw-UsK"/>
+                                            <outlet property="teamName" destination="Gui-nF-RcN" id="Vuu-QA-TxC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xjA-DR-BbX" firstAttribute="top" secondItem="4QE-wd-jIV" secondAttribute="bottom" constant="75" id="228-Hb-Nza"/>
+                            <constraint firstItem="4QE-wd-jIV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2sQ-NT-f4A"/>
+                            <constraint firstItem="DdT-Ss-wVz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5EA-vh-iZr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xjA-DR-BbX" secondAttribute="trailing" constant="60" id="5bP-GX-6BK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4QE-wd-jIV" secondAttribute="trailing" constant="20" id="MKk-TT-GOj"/>
+                            <constraint firstItem="xjA-DR-BbX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="f27-Bf-2mK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xjA-DR-BbX" secondAttribute="bottom" constant="85" id="ovO-gh-BJp"/>
+                            <constraint firstItem="DdT-Ss-wVz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="slM-he-Put"/>
+                            <constraint firstItem="4QE-wd-jIV" firstAttribute="top" secondItem="DdT-Ss-wVz" secondAttribute="bottom" constant="25" id="tod-MN-LDF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="leagueScheduleButton" destination="xjA-DR-BbX" id="f1d-6Z-Tt5"/>
+                            <outlet property="selectPoolTextField" destination="DdT-Ss-wVz" id="xqs-P1-hAk"/>
+                            <outlet property="tableView" destination="4QE-wd-jIV" id="CLy-bU-O6S"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scheduling" id="1bI-4P-6DP">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="rcS-jV-ETD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="leagueOverviewView" destination="8bC-Xf-vdC" id="jv9-zC-RyQ"/>
+                        <segue destination="4em-MR-F6M" kind="show" identifier="toTeamInfo" id="C1g-s6-wJF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1037.68115942029" y="93.75"/>
+        </scene>
+        <!--League Schedule-->
+        <scene sceneID="if8-1I-STe">
+            <objects>
+                <viewController id="wcc-a3-Rbb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="luN-hD-ty0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJi-oa-jjx">
+                                <rect key="frame" x="20" y="103" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="3zY-Om-T9g"/>
+                                    <constraint firstAttribute="width" constant="75" id="9Ro-Am-XWt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <state key="normal" title="Week 1"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yF-gn-kb4" userLabel="League Schedule Table View">
+                                <rect key="frame" x="60" y="218" width="294" height="534"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK2-wf-xVC">
+                                <rect key="frame" x="319" y="103" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="XVo-YI-a34"/>
+                                    <constraint firstAttribute="width" constant="75" id="kR7-JQ-CGx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <state key="normal" title="Week 2"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="M8k-yt-5gl" firstAttribute="bottom" secondItem="4yF-gn-kb4" secondAttribute="bottom" constant="110" id="EOU-fX-7pi"/>
+                            <constraint firstItem="4yF-gn-kb4" firstAttribute="leading" secondItem="M8k-yt-5gl" secondAttribute="leading" constant="60" id="S7D-Sg-ae7"/>
+                            <constraint firstItem="M8k-yt-5gl" firstAttribute="trailing" secondItem="4yF-gn-kb4" secondAttribute="trailing" constant="60" id="UMP-ND-cWF"/>
+                            <constraint firstItem="M8k-yt-5gl" firstAttribute="trailing" secondItem="WK2-wf-xVC" secondAttribute="trailing" constant="20" id="aLx-Ip-jQQ"/>
+                            <constraint firstItem="mJi-oa-jjx" firstAttribute="top" secondItem="M8k-yt-5gl" secondAttribute="top" constant="15" id="eDe-jO-FDX"/>
+                            <constraint firstItem="mJi-oa-jjx" firstAttribute="leading" secondItem="M8k-yt-5gl" secondAttribute="leading" constant="20" id="mZo-5U-em0"/>
+                            <constraint firstItem="WK2-wf-xVC" firstAttribute="top" secondItem="M8k-yt-5gl" secondAttribute="top" constant="15" id="qqM-Qo-3Bn"/>
+                            <constraint firstItem="4yF-gn-kb4" firstAttribute="top" secondItem="WK2-wf-xVC" secondAttribute="bottom" constant="80" id="srb-tr-ZwO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="M8k-yt-5gl"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="League Schedule" id="x4M-p4-pH1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7xT-Vm-23n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1037.68115942029" y="822.99107142857144"/>
+        </scene>
+        <!--Team Info-->
+        <scene sceneID="ux2-uR-SfG">
+            <objects>
+                <viewController id="4em-MR-F6M" customClass="TeamInfoVC" customModule="SchedulingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v3u-7i-trC" customClass="TeamInfoView" customModule="SchedulingApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRC-xS-Wcd">
+                                <rect key="frame" x="50" y="113" width="120" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="RJ2-l4-rl7"/>
+                                    <constraint firstAttribute="width" constant="120" id="Wbs-u2-bXy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Team1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pdc-E6-XNE">
+                                <rect key="frame" x="224" y="108" width="140" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="UpZ-sc-RMR"/>
+                                    <constraint firstAttribute="height" constant="35" id="Uxo-W9-YGD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="teamTextField:" destination="9ib-bN-k4k" eventType="editingDidEnd" id="kgH-sg-mDR"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pool:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1s-AI-drY">
+                                <rect key="frame" x="50" y="178" width="120" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="21C-M4-lJr"/>
+                                    <constraint firstAttribute="height" constant="25" id="Dnl-Pj-dAx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pool1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-J2-EK9">
+                                <rect key="frame" x="224" y="173.5" width="140" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="zcX-b5-Wfc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nyL-0w-ioC">
+                                <rect key="frame" x="25" y="282.5" width="364" height="499.5"/>
+                                <color key="backgroundColor" red="0.93202825700000003" green="0.93202825700000003" blue="0.93202825700000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="avq-VT-rDE" userLabel="Title View">
+                                    <rect key="frame" x="0.0" y="0.0" width="364" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7z-qj-asL">
+                                            <rect key="frame" x="0.0" y="0.0" width="197" height="65"/>
+                                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEf-JL-lur">
+                                            <rect key="frame" x="197" y="0.0" width="167" height="65"/>
+                                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93202825700000003" green="0.93202825700000003" blue="0.93202825700000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="T7z-qj-asL" secondAttribute="bottom" id="3eH-fQ-8Dk"/>
+                                        <constraint firstAttribute="trailing" secondItem="iEf-JL-lur" secondAttribute="trailing" id="79B-M2-4pV"/>
+                                        <constraint firstItem="T7z-qj-asL" firstAttribute="top" secondItem="avq-VT-rDE" secondAttribute="top" id="DNR-eu-DTX"/>
+                                        <constraint firstItem="T7z-qj-asL" firstAttribute="width" secondItem="iEf-JL-lur" secondAttribute="width" constant="30" id="M54-vr-QI7"/>
+                                        <constraint firstItem="T7z-qj-asL" firstAttribute="leading" secondItem="avq-VT-rDE" secondAttribute="leading" id="RaX-22-wls"/>
+                                        <constraint firstItem="iEf-JL-lur" firstAttribute="top" secondItem="avq-VT-rDE" secondAttribute="top" id="b8Q-YZ-Mr7"/>
+                                        <constraint firstItem="iEf-JL-lur" firstAttribute="leading" secondItem="T7z-qj-asL" secondAttribute="trailing" id="eic-PV-Mmx"/>
+                                        <constraint firstAttribute="bottom" secondItem="iEf-JL-lur" secondAttribute="bottom" id="ucU-Zw-Huw"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ww5-0R-JDc" customClass="TeamInfoTableViewCell" customModule="SchedulingApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="93" width="364" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ww5-0R-JDc" id="5r7-CC-aBx">
+                                            <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week 1, Day 2, Game 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lr1-gf-J9x" userLabel="Date Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bears" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBb-iw-1mI" userLabel="Opponent Label">
+                                                    <rect key="frame" x="197" y="0.0" width="167" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.93202825700000003" green="0.93202825700000003" blue="0.93202825700000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstItem="Lr1-gf-J9x" firstAttribute="leading" secondItem="5r7-CC-aBx" secondAttribute="leading" id="2H9-eb-vZ6"/>
+                                                <constraint firstItem="nBb-iw-1mI" firstAttribute="leading" secondItem="Lr1-gf-J9x" secondAttribute="trailing" id="2Jj-Xy-OO8"/>
+                                                <constraint firstItem="nBb-iw-1mI" firstAttribute="top" secondItem="5r7-CC-aBx" secondAttribute="top" id="5XW-fk-wEQ"/>
+                                                <constraint firstItem="Lr1-gf-J9x" firstAttribute="width" secondItem="nBb-iw-1mI" secondAttribute="width" constant="30" id="82J-YL-j1K"/>
+                                                <constraint firstAttribute="bottom" secondItem="nBb-iw-1mI" secondAttribute="bottom" id="gJp-RO-1MW"/>
+                                                <constraint firstAttribute="trailing" secondItem="nBb-iw-1mI" secondAttribute="trailing" id="gfk-Kv-NZm"/>
+                                                <constraint firstItem="Lr1-gf-J9x" firstAttribute="top" secondItem="5r7-CC-aBx" secondAttribute="top" id="pdN-NU-Vss"/>
+                                                <constraint firstAttribute="bottom" secondItem="Lr1-gf-J9x" secondAttribute="bottom" id="wmk-ZW-7i3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dateLebel" destination="Lr1-gf-J9x" id="Hjb-UB-1bl"/>
+                                            <outlet property="opponentLabel" destination="nBb-iw-1mI" id="bP0-fa-3kR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="q1O-1W-bnC" firstAttribute="trailing" secondItem="nyL-0w-ioC" secondAttribute="trailing" constant="25" id="8ta-6n-WQI"/>
+                            <constraint firstItem="q1O-1W-bnC" firstAttribute="trailing" secondItem="LDt-J2-EK9" secondAttribute="trailing" constant="50" id="9DK-kO-kod"/>
+                            <constraint firstItem="q1O-1W-bnC" firstAttribute="bottom" secondItem="nyL-0w-ioC" secondAttribute="bottom" constant="80" id="B9X-ZO-2Ud"/>
+                            <constraint firstItem="r1s-AI-drY" firstAttribute="top" secondItem="gRC-xS-Wcd" secondAttribute="bottom" constant="40" id="J39-B7-pff"/>
+                            <constraint firstItem="Pdc-E6-XNE" firstAttribute="centerY" secondItem="gRC-xS-Wcd" secondAttribute="centerY" id="NxL-bU-fvy"/>
+                            <constraint firstItem="gRC-xS-Wcd" firstAttribute="top" secondItem="q1O-1W-bnC" secondAttribute="top" constant="25" id="SwR-wm-4uS"/>
+                            <constraint firstItem="q1O-1W-bnC" firstAttribute="trailing" secondItem="Pdc-E6-XNE" secondAttribute="trailing" constant="50" id="Wjc-U5-XEg"/>
+                            <constraint firstItem="LDt-J2-EK9" firstAttribute="centerY" secondItem="r1s-AI-drY" secondAttribute="centerY" id="Ztk-eQ-AoY"/>
+                            <constraint firstItem="gRC-xS-Wcd" firstAttribute="leading" secondItem="q1O-1W-bnC" secondAttribute="leading" constant="50" id="cpN-VD-ukU"/>
+                            <constraint firstItem="nyL-0w-ioC" firstAttribute="leading" secondItem="q1O-1W-bnC" secondAttribute="leading" constant="25" id="lJ1-K1-l4S"/>
+                            <constraint firstItem="r1s-AI-drY" firstAttribute="leading" secondItem="q1O-1W-bnC" secondAttribute="leading" constant="50" id="uIm-Xd-i9n"/>
+                            <constraint firstItem="nyL-0w-ioC" firstAttribute="top" secondItem="LDt-J2-EK9" secondAttribute="bottom" constant="75" id="z6c-x4-KSS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q1O-1W-bnC"/>
+                        <connections>
+                            <outlet property="selectPoolTextField" destination="LDt-J2-EK9" id="Hdz-D5-4Bh"/>
+                            <outlet property="tableView" destination="nyL-0w-ioC" id="CRn-E2-aq8"/>
+                            <outlet property="teamNameTextField" destination="Pdc-E6-XNE" id="6zN-X2-4An"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Team Info" id="fcr-uu-pcz"/>
+                    <connections>
+                        <outlet property="teamInfoView" destination="v3u-7i-trC" id="HAk-mi-HiR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyf-rI-6hb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="9ib-bN-k4k" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1962.3188405797102" y="117.85714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fNq-gI-XNa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gg5-7A-JHn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tep-sz-yJ7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Qxd-g9-1zC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oso-Ea-dk7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
+        </scene>
+        <!--Scheduling-->
+        <scene sceneID="Deo-wV-Egh">
+            <objects>
+                <viewController id="wD3-eI-PsY" customClass="LeagueOverviewVC" customModule="SchedulingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L0q-nh-Zey" customClass="LeagueOverviewView" customModule="SchedulingApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c54-B7-YuU" userLabel="Pool Stack View">
+                                <rect key="frame" x="35" y="69" width="344" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDN-kG-qr0">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="35"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                        <state key="normal" title="Pool A">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSS-o2-ApD">
+                                        <rect key="frame" x="94.5" y="0.0" width="60" height="35"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                        <state key="normal" title="Pool B">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptH-Ne-dPZ">
+                                        <rect key="frame" x="187.5" y="0.0" width="61" height="35"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                        <state key="normal" title="Pool C">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBK-P1-NdC">
+                                        <rect key="frame" x="281" y="0.0" width="63" height="35"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                        <state key="normal" title="Pool D">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hyO-l1-BhY">
+                                <rect key="frame" x="20" y="129" width="374" height="513"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfT-Xe-8Vp">
+                                <rect key="frame" x="60" y="717" width="294" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="u4k-zx-NLR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
+                                <state key="normal" title="League Schedule">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GfT-Xe-8Vp" firstAttribute="leading" secondItem="s4A-PA-4OI" secondAttribute="leading" constant="60" id="Ap1-f2-qHm"/>
+                            <constraint firstItem="s4A-PA-4OI" firstAttribute="trailing" secondItem="hyO-l1-BhY" secondAttribute="trailing" constant="20" id="LRD-r5-cz9"/>
+                            <constraint firstItem="s4A-PA-4OI" firstAttribute="trailing" secondItem="GfT-Xe-8Vp" secondAttribute="trailing" constant="60" id="b5i-Jx-g5e"/>
+                            <constraint firstItem="s4A-PA-4OI" firstAttribute="trailing" secondItem="c54-B7-YuU" secondAttribute="trailing" constant="35" id="iId-tz-cyY"/>
+                            <constraint firstItem="c54-B7-YuU" firstAttribute="top" secondItem="s4A-PA-4OI" secondAttribute="top" constant="25" id="iLb-Fo-Zbf"/>
+                            <constraint firstItem="s4A-PA-4OI" firstAttribute="bottom" secondItem="GfT-Xe-8Vp" secondAttribute="bottom" constant="85" id="kZH-qH-hfR"/>
+                            <constraint firstItem="GfT-Xe-8Vp" firstAttribute="top" secondItem="hyO-l1-BhY" secondAttribute="bottom" constant="75" id="rOn-MD-dIt"/>
+                            <constraint firstItem="c54-B7-YuU" firstAttribute="leading" secondItem="s4A-PA-4OI" secondAttribute="leading" constant="35" id="sWZ-sQ-Xlz"/>
+                            <constraint firstItem="hyO-l1-BhY" firstAttribute="leading" secondItem="s4A-PA-4OI" secondAttribute="leading" constant="20" id="vj2-97-kLp"/>
+                            <constraint firstItem="hyO-l1-BhY" firstAttribute="top" secondItem="c54-B7-YuU" secondAttribute="bottom" constant="25" id="yh6-za-cdp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="s4A-PA-4OI"/>
+                        <connections>
+                            <outlet property="firstPoolButton" destination="jDN-kG-qr0" id="T8o-BY-n8G"/>
+                            <outlet property="secondPoolButton" destination="ZSS-o2-ApD" id="T4V-dJ-cJS"/>
+                            <outlet property="thirdPoolButton" destination="ptH-Ne-dPZ" id="Owl-B5-3lj"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scheduling" id="qtD-cj-JEL">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5Gr-rg-Pr3"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gtJ-2e-y51" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3871" y="861"/>
+        </scene>
+        <!--Team Info-->
+        <scene sceneID="giG-Uo-7n4">
+            <objects>
+                <viewController id="M0O-Rz-AcY" customClass="TeamInfoVC" customModule="SchedulingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YZO-99-Xxp" customClass="TeamInfoView" customModule="SchedulingApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5r-Bq-6fN">
+                                <rect key="frame" x="50" y="69" width="120" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Ftx-20-fC4"/>
+                                    <constraint firstAttribute="width" constant="120" id="gP7-x5-sfV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Team1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I79-nh-Rpl">
+                                <rect key="frame" x="224" y="64" width="140" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="8R2-qL-0ew"/>
+                                    <constraint firstAttribute="height" constant="35" id="fRV-A9-iSi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="teamTextField:" destination="9ib-bN-k4k" eventType="editingDidEnd" id="4Jl-wK-CrY"/>
+                                    <action selector="teamTextField:" destination="9sT-5X-424" eventType="editingDidEnd" id="7gM-1I-5Hk"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pool:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5H-jk-I9W">
+                                <rect key="frame" x="50" y="134" width="120" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Bg9-rY-Eug"/>
+                                    <constraint firstAttribute="height" constant="25" id="K0r-Wb-76f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pool1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lc6-bT-vR6">
+                                <rect key="frame" x="224" y="129.5" width="140" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="prG-xj-Mb8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lZm-aM-55v">
+                                <rect key="frame" x="70" y="238.5" width="274" height="468.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="q5H-jk-I9W" firstAttribute="top" secondItem="g5r-Bq-6fN" secondAttribute="bottom" constant="40" id="2TV-Hw-2Di"/>
+                            <constraint firstItem="I79-nh-Rpl" firstAttribute="centerY" secondItem="g5r-Bq-6fN" secondAttribute="centerY" id="AgR-6p-eT7"/>
+                            <constraint firstItem="lc6-bT-vR6" firstAttribute="centerY" secondItem="q5H-jk-I9W" secondAttribute="centerY" id="FMn-mf-QV5"/>
+                            <constraint firstItem="g5r-Bq-6fN" firstAttribute="top" secondItem="YgC-0e-2GN" secondAttribute="top" constant="25" id="FNo-1X-AwA"/>
+                            <constraint firstItem="q5H-jk-I9W" firstAttribute="leading" secondItem="YgC-0e-2GN" secondAttribute="leading" constant="50" id="Liw-en-zKr"/>
+                            <constraint firstItem="g5r-Bq-6fN" firstAttribute="leading" secondItem="YgC-0e-2GN" secondAttribute="leading" constant="50" id="NDV-lL-nLC"/>
+                            <constraint firstItem="YgC-0e-2GN" firstAttribute="trailing" secondItem="lZm-aM-55v" secondAttribute="trailing" constant="70" id="dXD-nd-cys"/>
+                            <constraint firstItem="lZm-aM-55v" firstAttribute="top" secondItem="lc6-bT-vR6" secondAttribute="bottom" constant="75" id="lGA-Zy-24h"/>
+                            <constraint firstItem="YgC-0e-2GN" firstAttribute="trailing" secondItem="I79-nh-Rpl" secondAttribute="trailing" constant="50" id="len-ul-O9h"/>
+                            <constraint firstItem="YgC-0e-2GN" firstAttribute="trailing" secondItem="lc6-bT-vR6" secondAttribute="trailing" constant="50" id="ls8-m2-5so"/>
+                            <constraint firstItem="lZm-aM-55v" firstAttribute="leading" secondItem="YgC-0e-2GN" secondAttribute="leading" constant="70" id="pI8-HC-6Ie"/>
+                            <constraint firstItem="YgC-0e-2GN" firstAttribute="bottom" secondItem="lZm-aM-55v" secondAttribute="bottom" constant="155" id="ujm-iR-bGG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YgC-0e-2GN"/>
+                        <connections>
+                            <outlet property="selectPoolTextField" destination="lc6-bT-vR6" id="DlZ-Bj-aGA"/>
+                            <outlet property="tableView" destination="lZm-aM-55v" id="0Pr-kh-OgR"/>
+                            <outlet property="teamNameTextField" destination="I79-nh-Rpl" id="4rh-mB-Pyo"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Team Info" id="guM-UE-07D"/>
+                    <connections>
+                        <outlet property="teamInfoView" destination="YZO-99-Xxp" id="ykh-yz-L4w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IOc-P1-B7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="9sT-5X-424" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3870" y="118"/>
+        </scene>
+    </scenes>
+</document>
