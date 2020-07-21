@@ -26,7 +26,6 @@ class LeagueOverviewVC: UIViewController {
         leagueOverviewView.tableView.dataSource = self
         
         createPickers()
-        
         createTheLeague()
     }
     
@@ -40,8 +39,21 @@ class LeagueOverviewVC: UIViewController {
         // Segue to Job Applicants VC and pass along the corresponding job data
         if segue.destination is TeamInfoVC {
             let viewController = segue.destination as? TeamInfoVC
-            viewController?.teamInfoViewModel.teamInfo = self.leagueOverviewViewModel.teamInfo!
+            
+            viewController?.teamInfoViewModel = TeamInfoViewModel()
+            viewController?.teamInfoViewModel!.teamInfo = self.leagueOverviewViewModel.teamInfo
+            viewController?.teamInfoViewModel!.poolName = leagueOverviewView.selectPoolTextField.text
+            viewController?.teamInfoViewModel!.poolNumber = self.leagueOverviewViewModel.poolNumber
+            viewController?.teamInfoViewModel!.originalPoolNumber = self.leagueOverviewViewModel.poolNumber
+            viewController?.teamInfoViewModel!.leagueOverviewViewModel = self.leagueOverviewViewModel
+            viewController?.teamInfoViewModel!.leagueOverviewViewModel?.delegate = viewController?.teamInfoViewModel!
+            
+            leagueOverviewViewModel.initializeNewViewModel()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        leagueOverviewView.tableView.reloadData()
     }
 
     // TODO: CAN I MOVE THIS OUT?

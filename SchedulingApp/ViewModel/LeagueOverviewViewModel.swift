@@ -14,6 +14,10 @@ import Foundation
 
 //var leagueOverviewViewModel: [LeagueOverviewViewModel] = [leagueOverviewViewModel(leagueOverviewDataModel: Messier1)]
 
+protocol PassModelToNextViewModelDelegate : class {
+    func receiveModel(dataModel: LeagueOverviewDataModel)
+}
+
 class LeagueOverviewViewModel {
     
     private let leagueOverviewDataModel: LeagueOverviewDataModel = LeagueOverviewDataModel()
@@ -27,6 +31,8 @@ class LeagueOverviewViewModel {
     
     var teamInfo : Team?
         
+    weak var delegate : PassModelToNextViewModelDelegate?
+
     /// The pool data that corresponds to the user selected pool
  //   var selectedPoolData : [Team]?
         
@@ -83,6 +89,11 @@ class LeagueOverviewViewModel {
     public func teamDetails(index: Int) {
         let league = self.leagueOverviewDataModel.getLeagueOverview
         self.teamInfo = league()[self.poolNumber!].teams[index]
+    }
+    
+    /// Initialize team info viewModel
+    public func initializeNewViewModel() {
+        self.delegate?.receiveModel(dataModel: leagueOverviewDataModel)
     }
 
 }

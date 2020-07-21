@@ -42,7 +42,7 @@ extension TeamInfoVC : UIPickerViewDelegate, UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // Pass the data to the view model
-        teamInfoViewModel.poolNumber = row
+        teamInfoViewModel!.poolNumber = row
         
         // Set the title as the text in the corresponding row
         return Options.POOL_OPTIONS[row]

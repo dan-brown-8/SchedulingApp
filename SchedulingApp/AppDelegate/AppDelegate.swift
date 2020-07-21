@@ -15,8 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 83.0/255.0, green: 161.0/255.0, blue: 232.0/255.0, alpha: 1.0)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font : UIFont(name:"Palatino",size:25)!, NSAttributedString.Key.foregroundColor : UIColor.white]
+      //  UINavigationBar.appearance().barTintColor = UIColor(red: 83.0/255.0, green: 161.0/255.0, blue: 232.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font : UIFont(name:"Palatino",size:25)!, NSAttributedString.Key.foregroundColor : UIColor.black]
         UINavigationBar.appearance().tintColor = .white
 
         // Creates the black border underneath the navigation bar

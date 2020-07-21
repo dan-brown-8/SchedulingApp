@@ -10,7 +10,7 @@ import UIKit
 
 class TeamInfoVC: UIViewController {
     
-    var teamInfoViewModel: TeamInfoViewModel = TeamInfoViewModel()
+    var teamInfoViewModel: TeamInfoViewModel?
     
     @IBOutlet var teamInfoView: TeamInfoView!
     
@@ -22,14 +22,27 @@ class TeamInfoVC: UIViewController {
         // Conform to the table view delegate
         teamInfoView.tableView.delegate = self
         teamInfoView.tableView.dataSource = self
-            
-        createPickers()
+          
+        teamInfoView.teamNameTextField.text = teamInfoViewModel!.teamInfo?.teamName
+        teamInfoView.selectPoolTextField.text = teamInfoViewModel!.poolName
         
+        createPickers()
         
     }
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // If the team name has changed, perform the necessary functions
+        if (self.teamInfoViewModel!.teamInfo!.teamName != self.teamInfoView.teamNameTextField.text && self.teamInfoView.teamNameTextField.text != "") {
+            
+            self.teamInfoViewModel!.changeTeamName(newName: self.teamInfoView.teamNameTextField.text!)
+        }
+
     }
 
     // TODO: CAN I MOVE THIS OUT?
@@ -56,7 +69,7 @@ class TeamInfoVC: UIViewController {
             let selectedRow : Int = teamInfoView.poolPicker.selectedRow(inComponent: 0)
                 
             // Update the chosen pool
-            teamInfoViewModel.poolNumber = selectedRow
+            teamInfoViewModel!.poolNumber = selectedRow
                 
             switch selectedRow {
                 case 0:
@@ -78,6 +91,13 @@ class TeamInfoVC: UIViewController {
                 default:
                     print("Error filling size of lawn text field")
                     
+            }
+            
+            // If the pool number has changed, perform the necessary functions
+            if (self.teamInfoViewModel?.poolNumber != self.teamInfoViewModel?.originalPoolNumber) {
+                print("Update the league to show that the pool has changed")
+                
+                self.teamInfoViewModel!.changePool()
             }
                 
             teamInfoView.tableView.reloadData()

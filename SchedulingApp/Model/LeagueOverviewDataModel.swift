@@ -22,14 +22,16 @@ private var schedule : Schedule */
 class LeagueOverviewDataModel {
 
     init() {
-           totalTeams = 0
-           totalPools = 0
-           leagueOverview = []
-       }
+        totalTeams = 0
+        totalPools = 0
+        leagueOverview = []
+        schedule = []
+    }
        
-       private var totalTeams : Int
-       private var totalPools : Int
-       private var leagueOverview : [Pool]
+    private var totalTeams : Int
+    private var totalPools : Int
+    private var leagueOverview : [Pool]
+    private var schedule : [Game]
     
     public func setTotalTeams(totalTeams : Int) {
         self.totalTeams = totalTeams
@@ -41,6 +43,10 @@ class LeagueOverviewDataModel {
     
     public func setLeagueOverview(leagueOverview : [Pool]) {
         self.leagueOverview = leagueOverview
+    }
+    
+    public func setSchedule(schedule : [Game]) {
+        self.schedule = schedule
     }
     
     public func getTotalTeams() -> Int {
@@ -55,6 +61,10 @@ class LeagueOverviewDataModel {
         return leagueOverview
     }
     
+    public func getSchedule() -> [Game] {
+        return schedule
+    }
+    
     
     
     // CREATE LEAGUE FUNCTIONS
@@ -67,6 +77,10 @@ class LeagueOverviewDataModel {
         self.setLeagueOverview(leagueOverview: leagueOverview)
         self.setTotalPools(totalPools: 4)
         self.setTotalTeams(totalTeams: 32)
+        
+        self.scheduleGenerator()
+      //  print("Creating league")
+     //   print (self.getLeagueOverview())
         
         return leagueOverview
     }
@@ -104,6 +118,70 @@ class LeagueOverviewDataModel {
     public func createTeams(teamNumber: Int) -> Team {
         return Team(teamName: "Team" + "\(teamNumber)", numOfGames: 8)
     }
+    
+    public func updateTeamName(oldName: String, newName: String, poolNumber: Int) {
+        print(poolNumber)
+       // print(self.getLeagueOverview())
+        var league = self.getLeagueOverview()
+        var pool = league[poolNumber]
+
+        // Find the team in the pool and set it's new name
+        for (index, team) in pool.teams.enumerated() {
+            if (team.teamName == oldName) {
+                print("\(team.teamName)")
+                print("\(pool.teams[index].teamName)")
+                print(index)
+                pool.teams[index].teamName = newName
+            }
+        }
+        // Update the league to register the name change
+        league[poolNumber] = pool
+        setLeagueOverview(leagueOverview : league)
+        
+ //       return true
+    }
+    
+    public func updatePools(oldPoolNumber: Int, newPoolNumber: Int, teamName: String) {
+        print("Update the Pools")
+        
+        var league = self.getLeagueOverview()
+        var oldPool = league[oldPoolNumber]
+        var newPool = league[newPoolNumber]
+        
+        
+        // Find the team in the pool
+        for (index, team) in oldPool.teams.enumerated() {
+            if (team.teamName == teamName) {
+                // Append the team to it's new pool
+                newPool.teams.append(team)
+                newPool.numOfTeams += 1
+                // Remove the team from it's old pool
+                oldPool.teams.remove(at: index)
+                oldPool.numOfTeams -= 1
+                
+            }
+        }
+        // Update the league to register the name change
+        league[oldPoolNumber] = oldPool
+        league[newPoolNumber] = newPool
+        setLeagueOverview(leagueOverview : league)
+    }
+    
+   /* public func findTeamInPool(pool: Pool, name: String) {
+        
+        // Iterate through pool and find team
+        for (index, team) in pool.teams.enumerated() {
+            if (team.teamName == oldName) {
+             //   print("\(team.teamName)")
+              //  print("\(pool.teams[index].teamName)")
+                print(index)
+                pool.teams[index].teamName = newName
+            //    team.teamName = newName
+              //  index+=1
+            }
+        }
+    } */
+    
     /// Use this function to add additional pools to the league
   /*  public func addPool(numOfTeams: Int, poolName: String, teams: [Team]) {
            
@@ -123,6 +201,67 @@ class LeagueOverviewDataModel {
     public func removeTeam() {
                
     } */
+    
+    public func scheduleGenerator() {
+        var schedule : [Game] = []
+        
+        var league = getLeagueOverview()
+        
+       // poolNum : 0 - 3 // Number of pools in the league
+       // teamNum : 0 - 6 // Number of teams in a pool
+        
+       // var poolNum = 0
+        var teamNum = 0
+        
+       // league[poolNum].teams[teamNum] // References a team
+        
+        // Schedule a team to play everyone in their pool, then remove them. Repeat the process for every team in their pool, then repeat the process with the remaining pools
+        
+        // Amount of iterations
+      //  league[poolNum].teams.count - 1
+        
+        var team1 : Team?
+        var team2 : Team?
+        
+         // Schedule a team to play everyone in their pool, then remove them. Repeat the process for every team in their pool, then repeat the process with the remaining pools
+        for poolNum in 0...league.count - 1 {
+
+            while (league[poolNum].teams.count > 0) {
+        
+                for (index, team) in league[poolNum].teams.enumerated() {
+                    // Once the team has played everyone else in their pool, pop them from the stack
+                    if ((index + 1) == league[poolNum].teams.count) {
+                        league[poolNum].teams.remove(at: teamNum)
+                        break
+                    }
+                    else {
+                        team1 = league[poolNum].teams[teamNum]
+                        team2 = league[poolNum].teams[teamNum + 1 + index]
+                
+                        schedule.append(Game(team1: team1!, team2: team2!))
+                    }
+                }
+        
+            }
+        }
+        
+        // Replenish the league value so we can access the teams again
+        league = getLeagueOverview()
+        
+        var pool = league.randomElement()!
+        
+    //    league.remove(object: pool)
+        
+        //league = league.filter(){$0 != pool}
+        
+        print(league)
+        
+        // print(schedule)
+        print(schedule.count)
+        
+        
+        
+    }
     
 }
     
@@ -166,8 +305,8 @@ struct League {
 struct Game {
     let team1: Team
     let team2: Team
-    let timeSlot: Int // 5 total timeslots: 3 on saturday 2 on sunday
-    let weekNumber: Int
+ //   let timeSlot: Int // 5 total timeslots: 3 on saturday 2 on sunday
+    //let weekNumber: Int
  /*  Available in more advanced versions
      let Date : Date
      let gamePlayed: Bool
