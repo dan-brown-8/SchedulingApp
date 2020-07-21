@@ -8,17 +8,6 @@
 
 import Foundation
 
-/*init() {
-   // game = Game(team1: team, team2: team, timeSlot: 0, weekNumber: 0))
-  //  team = Team(teamName: "", numOfGames: 0, schedule: Schedule(games: [game]))
-  //  pool = Pool(numOfTeams: 0, poolName: "", teams: [Team])
-    league = League(numOfTeams: 0, numOfPools: 0, overview: [Pool(numOfTeams: 0, poolName: "", teams: [])])
-    schedule = Schedule(games: [])
-}
-
-private var league : League
-private var schedule : Schedule */
-
 class LeagueOverviewDataModel {
 
     init() {
@@ -209,17 +198,10 @@ class LeagueOverviewDataModel {
         
        // poolNum : 0 - 3 // Number of pools in the league
        // teamNum : 0 - 6 // Number of teams in a pool
-        
-       // var poolNum = 0
+
         var teamNum = 0
         
-       // league[poolNum].teams[teamNum] // References a team
-        
-        // Schedule a team to play everyone in their pool, then remove them. Repeat the process for every team in their pool, then repeat the process with the remaining pools
-        
-        // Amount of iterations
-      //  league[poolNum].teams.count - 1
-        
+
         var team1 : Team?
         var team2 : Team?
         
@@ -248,18 +230,35 @@ class LeagueOverviewDataModel {
         // Replenish the league value so we can access the teams again
         league = getLeagueOverview()
         
-        var pool = league.randomElement()!
+        while (league.count > 1) {
+            // Select a random pool, then remove from the sta so we don't select it again as a duplicate
+            var randomNumber = Int.random(in: 0 ..< league.count)
+            var pool1 = league[randomNumber]
+            league.remove(at: randomNumber)
         
-    //    league.remove(object: pool)
         
-        //league = league.filter(){$0 != pool}
+            randomNumber = Int.random(in: 0 ..< league.count)
+            var pool2 = league[randomNumber]
+            league.remove(at: randomNumber)
         
-        print(league)
+            // Match a team from 1 pool to a random team from the other pool. Remove the random team so they are not selected again as a duplicate
+            for i in 0...pool1.teams.count - 1 {
+                team1 = pool1.teams[i]
+            
+                randomNumber = Int.random(in: 0 ..< pool2.teams.count)
+                team2 = pool2.teams[randomNumber]
+                schedule.append(Game(team1: team1!, team2: team2!))
+                pool2.teams.remove(at: randomNumber)
+            }
+        }
         
-        // print(schedule)
+        print(schedule)
         print(schedule.count)
         
+        /// Randomize the games on the schedule
+        schedule = schedule.shuffled()
         
+        self.setSchedule(schedule : schedule)
         
     }
     

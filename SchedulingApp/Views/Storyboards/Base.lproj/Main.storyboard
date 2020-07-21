@@ -124,8 +124,8 @@
         <!--League Schedule-->
         <scene sceneID="if8-1I-STe">
             <objects>
-                <viewController id="wcc-a3-Rbb" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="luN-hD-ty0">
+                <viewController id="wcc-a3-Rbb" customClass="LeagueScheduleVC" customModule="SchedulingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="luN-hD-ty0" customClass="LeagueScheduleView" customModule="SchedulingApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -138,10 +138,6 @@
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                 <state key="normal" title="Week 1"/>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yF-gn-kb4" userLabel="League Schedule Table View">
-                                <rect key="frame" x="60" y="218" width="294" height="534"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK2-wf-xVC">
                                 <rect key="frame" x="319" y="103" width="75" height="35"/>
                                 <constraints>
@@ -153,21 +149,103 @@
                                     <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Dm-8it">
+                                <rect key="frame" x="40" y="218" width="334" height="534"/>
+                                <color key="backgroundColor" red="0.93202825700000003" green="0.93202825700000003" blue="0.93202825700000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="LkV-To-FjP" userLabel="Title View">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aj-Yr-hKj">
+                                            <rect key="frame" x="0.0" y="0.0" width="142" height="65"/>
+                                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matchup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7c-ip-qVk">
+                                            <rect key="frame" x="142" y="0.0" width="192" height="65"/>
+                                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93202825700000003" green="0.93202825700000003" blue="0.93202825700000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="x7c-ip-qVk" firstAttribute="top" secondItem="LkV-To-FjP" secondAttribute="top" id="4IL-9J-DD2"/>
+                                        <constraint firstItem="1aj-Yr-hKj" firstAttribute="leading" secondItem="LkV-To-FjP" secondAttribute="leading" id="G08-Yx-rYS"/>
+                                        <constraint firstItem="1aj-Yr-hKj" firstAttribute="top" secondItem="LkV-To-FjP" secondAttribute="top" id="OQl-h6-Hyd"/>
+                                        <constraint firstAttribute="bottom" secondItem="x7c-ip-qVk" secondAttribute="bottom" id="TBd-kj-rqa"/>
+                                        <constraint firstAttribute="bottom" secondItem="1aj-Yr-hKj" secondAttribute="bottom" id="Zmn-Cr-HB0"/>
+                                        <constraint firstAttribute="trailing" secondItem="x7c-ip-qVk" secondAttribute="trailing" id="bpV-uG-gnK"/>
+                                        <constraint firstItem="1aj-Yr-hKj" firstAttribute="width" secondItem="x7c-ip-qVk" secondAttribute="width" constant="-50" id="lCf-ly-RmC"/>
+                                        <constraint firstItem="x7c-ip-qVk" firstAttribute="leading" secondItem="1aj-Yr-hKj" secondAttribute="trailing" id="pdq-Rb-uvw"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Lui-07-nhW" customClass="LeagueScheduleTableViewCell" customModule="SchedulingApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="93" width="334" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lui-07-nhW" id="8kZ-yU-ugd">
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1, Game 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDg-8k-Dxq" userLabel="Date Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bears v Cowboys" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGE-7c-tkg" userLabel="Opponent Label">
+                                                    <rect key="frame" x="142" y="0.0" width="192" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.93202825700000003" green="0.93202825700000003" blue="0.93202825700000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstItem="aDg-8k-Dxq" firstAttribute="top" secondItem="8kZ-yU-ugd" secondAttribute="top" id="6HK-4Q-XRH"/>
+                                                <constraint firstAttribute="bottom" secondItem="aGE-7c-tkg" secondAttribute="bottom" id="D9W-pd-ZRc"/>
+                                                <constraint firstAttribute="trailing" secondItem="aGE-7c-tkg" secondAttribute="trailing" id="HvN-Hb-zmR"/>
+                                                <constraint firstItem="aDg-8k-Dxq" firstAttribute="width" secondItem="aGE-7c-tkg" secondAttribute="width" constant="-50" id="LUo-8j-4H3"/>
+                                                <constraint firstItem="aDg-8k-Dxq" firstAttribute="leading" secondItem="8kZ-yU-ugd" secondAttribute="leading" id="glS-y2-XQ5"/>
+                                                <constraint firstItem="aGE-7c-tkg" firstAttribute="top" secondItem="8kZ-yU-ugd" secondAttribute="top" id="nY6-YC-h3a"/>
+                                                <constraint firstAttribute="bottom" secondItem="aDg-8k-Dxq" secondAttribute="bottom" id="uTR-ZC-CgL"/>
+                                                <constraint firstItem="aGE-7c-tkg" firstAttribute="leading" secondItem="aDg-8k-Dxq" secondAttribute="trailing" id="vo5-Ug-Aqr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dateLebel" destination="aDg-8k-Dxq" id="BiI-7e-uF0"/>
+                                            <outlet property="matchupLabel" destination="aGE-7c-tkg" id="7gY-wK-gUz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="M8k-yt-5gl" firstAttribute="bottom" secondItem="4yF-gn-kb4" secondAttribute="bottom" constant="110" id="EOU-fX-7pi"/>
-                            <constraint firstItem="4yF-gn-kb4" firstAttribute="leading" secondItem="M8k-yt-5gl" secondAttribute="leading" constant="60" id="S7D-Sg-ae7"/>
-                            <constraint firstItem="M8k-yt-5gl" firstAttribute="trailing" secondItem="4yF-gn-kb4" secondAttribute="trailing" constant="60" id="UMP-ND-cWF"/>
+                            <constraint firstItem="XJs-Dm-8it" firstAttribute="top" secondItem="mJi-oa-jjx" secondAttribute="bottom" constant="80" id="969-Qj-SgD"/>
+                            <constraint firstItem="XJs-Dm-8it" firstAttribute="leading" secondItem="M8k-yt-5gl" secondAttribute="leading" constant="40" id="I23-Ri-T8k"/>
+                            <constraint firstItem="M8k-yt-5gl" firstAttribute="bottom" secondItem="XJs-Dm-8it" secondAttribute="bottom" constant="110" id="R7S-lU-Ulx"/>
                             <constraint firstItem="M8k-yt-5gl" firstAttribute="trailing" secondItem="WK2-wf-xVC" secondAttribute="trailing" constant="20" id="aLx-Ip-jQQ"/>
                             <constraint firstItem="mJi-oa-jjx" firstAttribute="top" secondItem="M8k-yt-5gl" secondAttribute="top" constant="15" id="eDe-jO-FDX"/>
+                            <constraint firstItem="M8k-yt-5gl" firstAttribute="trailing" secondItem="XJs-Dm-8it" secondAttribute="trailing" constant="40" id="fTm-Jq-sOF"/>
                             <constraint firstItem="mJi-oa-jjx" firstAttribute="leading" secondItem="M8k-yt-5gl" secondAttribute="leading" constant="20" id="mZo-5U-em0"/>
                             <constraint firstItem="WK2-wf-xVC" firstAttribute="top" secondItem="M8k-yt-5gl" secondAttribute="top" constant="15" id="qqM-Qo-3Bn"/>
-                            <constraint firstItem="4yF-gn-kb4" firstAttribute="top" secondItem="WK2-wf-xVC" secondAttribute="bottom" constant="80" id="srb-tr-ZwO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M8k-yt-5gl"/>
+                        <connections>
+                            <outlet property="nextWeekButton" destination="WK2-wf-xVC" id="ruM-ta-lWb"/>
+                            <outlet property="previousWeekButton" destination="mJi-oa-jjx" id="Yol-Qz-qTf"/>
+                            <outlet property="tableView" destination="XJs-Dm-8it" id="ki7-mS-9ns"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="League Schedule" id="x4M-p4-pH1"/>
+                    <connections>
+                        <outlet property="leagueScheduleView" destination="luN-hD-ty0" id="1SD-b9-gmr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xT-Vm-23n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

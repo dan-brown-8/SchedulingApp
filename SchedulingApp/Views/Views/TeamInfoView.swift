@@ -26,7 +26,7 @@ class TeamInfoView: UIView, UITextFieldDelegate {
         selectPoolTextField.delegate = self
             
         // Change the placeholder text color to black
-        selectPoolTextField.attributedPlaceholder = NSAttributedString(string: "Select Size",
+        selectPoolTextField.attributedPlaceholder = NSAttributedString(string: "Select Pool",
                                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]) 
         }
 }
