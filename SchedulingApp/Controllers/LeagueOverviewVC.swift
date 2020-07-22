@@ -36,7 +36,7 @@ class LeagueOverviewVC: UIViewController {
     // Once the segue has been called, pass the job data to the next ViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // Segue to Job Applicants VC and pass along the corresponding job data
+        // Segue to TeamInfoVC and pass along the necessary data
         if segue.destination is TeamInfoVC {
             let viewController = segue.destination as? TeamInfoVC
             
@@ -47,6 +47,20 @@ class LeagueOverviewVC: UIViewController {
             viewController?.teamInfoViewModel!.originalPoolNumber = self.leagueOverviewViewModel.poolNumber
             viewController?.teamInfoViewModel!.leagueOverviewViewModel = self.leagueOverviewViewModel
             viewController?.teamInfoViewModel!.leagueOverviewViewModel?.delegate = viewController?.teamInfoViewModel!
+            
+            leagueOverviewViewModel.initializeNewViewModel()
+        }
+        
+        if segue.destination is LeagueScheduleVC {
+            let viewController = segue.destination as? LeagueScheduleVC
+            
+            viewController?.leagueScheduleViewModel = LeagueScheduleViewModel()
+           // viewController?.teamInfoViewModel!.teamInfo = self.leagueOverviewViewModel.teamInfo
+          //  viewController?.teamInfoViewModel!.poolName = leagueOverviewView.selectPoolTextField.text
+          //  viewController?.teamInfoViewModel!.poolNumber = self.leagueOverviewViewModel.poolNumber
+            //viewController?.teamInfoViewModel!.originalPoolNumber = self.leagueOverviewViewModel.poolNumber
+            viewController?.leagueScheduleViewModel!.leagueOverviewViewModel = self.leagueOverviewViewModel
+            viewController?.leagueScheduleViewModel!.leagueOverviewViewModel?.delegate = viewController?.leagueScheduleViewModel!
             
             leagueOverviewViewModel.initializeNewViewModel()
         }

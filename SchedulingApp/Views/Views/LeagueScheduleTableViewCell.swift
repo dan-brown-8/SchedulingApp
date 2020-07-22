@@ -13,7 +13,7 @@ import UIKit
 class LeagueScheduleTableViewCell : UITableViewCell {
     
     @IBOutlet weak var matchupLabel: UILabel!
-    @IBOutlet weak var dateLebel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -12,7 +12,7 @@ import UIKit
 class TeamInfoTableViewCell : UITableViewCell {
     
     @IBOutlet weak var opponentLabel: UILabel!
-    @IBOutlet weak var dateLebel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

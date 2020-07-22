@@ -23,6 +23,11 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
     var poolName : String?
     
     var originalPoolNumber : Int?
+    
+    /// Holds all of the game dates from the team schedule
+    var gameDateArray : [String] = [String]()
+    /// Holds all of the opponents from the team schedule
+    var opponentsArray : [String]?
         
     // Initialize our data model so it can be used in this viewModel
    /* init(leagueOverviewDataModel: LeagueOverviewDataModel) {
@@ -35,6 +40,60 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
     func displayPoolName() -> String {
         return poolName ?? ""
     } */
+    
+    func generateTeamSchedule() {
+        let dataArray = leagueOverviewDataModel!.createTeamSchedule(teamName: teamInfo!.teamName)
+        
+        // Grab all even values from the array
+        let datesArray = stride(from: 0, to: dataArray.count, by: 2).map { dataArray[$0] }
+        
+        // Grab all odd values from the array
+        self.opponentsArray = (stride(from: 1, to: dataArray.count, by: 2).map { dataArray[$0] }) as? [String]
+        
+        convertDateValueToString(datesArray: datesArray as! [Int])
+    }
+    
+    /// Converts the numeric date value to a value that we can use to display to the user
+    func convertDateValueToString(datesArray: [Int]) {
+        print("Convert")
+        
+        for n in 0...datesArray.count - 1 {
+            let dateNum = datesArray[n]
+            let week = Int(dateNum / 5)
+            let timeslotNum = dateNum % 5
+            
+            let timeslotString = convertTimeslotNumberToString(timeslot: timeslotNum)
+            
+            print(dateNum)
+            print(week)
+            print(timeslotNum)
+            print(timeslotString)
+            
+            self.gameDateArray.append("Week " + "\(week), " + timeslotString)
+            print(self.gameDateArray)
+
+        }
+
+    }
+    
+    /// Converts the timeslot number to a string that we can display to the user
+    func convertTimeslotNumberToString(timeslot: Int) -> String {
+        
+        switch timeslot {
+            case 0:
+                return "Day 1, Game 1"
+            case 1:
+                return "Day 1, Game 2"
+            case 2:
+                return "Day 1, Game 3"
+            case 3:
+                return "Day 2, Game 4"
+            case 4:
+                return "Day 2, Game 5"
+            default:
+                return ""
+        }
+    }
     
     func changeTeamName(newName: String) {
         leagueOverviewDataModel!.updateTeamName(oldName: teamInfo!.teamName, newName: newName, poolNumber: self.poolNumber!)

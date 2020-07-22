@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Options {
+class Constants {
     static var POOL_OPTIONS = ["Pool A", "Pool B", "Pool C", "Pool D"]
     
-    static let dailySchedule = ["Day 1, Game 1", "Day 1, Game 2", "Day 1, Game 3", "Day 2, Game 1", "Day 2, Game 2"]
+    static let DAILY_SCHEDULE = ["Day 1, Game 1", "Day 1, Game 2", "Day 1, Game 3", "Day 2, Game 4", "Day 2, Game 5"]
 }
 
 enum ViewModel : Int {

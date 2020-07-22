@@ -59,11 +59,9 @@ extension TeamInfoVC : UITableViewDataSource {
                 fatalError("Bad cell: Could not cast")
         }
         
-       // print("\(self.leagueOverviewViewModel.displayTeamNames()[1].teamName)")
-       // cell.delegate = self
-
-      //  cell.teamName.text = "\(self.leagueOverviewViewModel.displayTeamNames()[indexPath.row].teamName)"
-      
+        cell.dateLabel.text = teamInfoViewModel?.gameDateArray[indexPath.row]
+        cell.opponentLabel.text = teamInfoViewModel?.opponentsArray?[indexPath.row]
+        
         return cell
     }
     
@@ -90,6 +88,9 @@ extension LeagueScheduleVC : UITableViewDataSource {
                 fatalError("Bad cell: Could not cast")
         }
         
+        cell.dateLabel.text = Constants.DAILY_SCHEDULE[indexPath.row]
+        
+        cell.matchupLabel.text = leagueScheduleViewModel!.formatMatchupData(timeSlot: indexPath.row)
        // print("\(self.leagueOverviewViewModel.displayTeamNames()[1].teamName)")
        // cell.delegate = self
 

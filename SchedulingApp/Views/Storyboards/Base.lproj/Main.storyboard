@@ -130,24 +130,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJi-oa-jjx">
-                                <rect key="frame" x="20" y="103" width="75" height="35"/>
+                                <rect key="frame" x="20" y="103" width="85" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="3zY-Om-T9g"/>
-                                    <constraint firstAttribute="width" constant="75" id="9Ro-Am-XWt"/>
+                                    <constraint firstAttribute="width" constant="85" id="9Ro-Am-XWt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                 <state key="normal" title="Week 1"/>
+                                <connections>
+                                    <action selector="previousWeekPressed:" destination="wcc-a3-Rbb" eventType="touchUpInside" id="lm4-Jy-kBB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK2-wf-xVC">
-                                <rect key="frame" x="319" y="103" width="75" height="35"/>
+                                <rect key="frame" x="309" y="103" width="85" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="XVo-YI-a34"/>
-                                    <constraint firstAttribute="width" constant="75" id="kR7-JQ-CGx"/>
+                                    <constraint firstAttribute="width" constant="85" id="kR7-JQ-CGx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="20"/>
                                 <state key="normal" title="Week 2">
                                     <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextWeekPressed:" destination="wcc-a3-Rbb" eventType="touchUpInside" id="cB0-wa-jxI"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Dm-8it">
                                 <rect key="frame" x="40" y="218" width="334" height="534"/>
@@ -217,19 +223,31 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="dateLebel" destination="aDg-8k-Dxq" id="BiI-7e-uF0"/>
+                                            <outlet property="dateLabel" destination="aDg-8k-Dxq" id="p9O-TE-zw6"/>
                                             <outlet property="matchupLabel" destination="aGE-7c-tkg" id="7gY-wK-gUz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJS-Dy-tMe">
+                                <rect key="frame" x="132" y="158" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Pqj-KZ-Lzj"/>
+                                    <constraint firstAttribute="width" constant="150" id="fYj-rc-Wvw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="XJs-Dm-8it" firstAttribute="top" secondItem="mJi-oa-jjx" secondAttribute="bottom" constant="80" id="969-Qj-SgD"/>
                             <constraint firstItem="XJs-Dm-8it" firstAttribute="leading" secondItem="M8k-yt-5gl" secondAttribute="leading" constant="40" id="I23-Ri-T8k"/>
+                            <constraint firstItem="lJS-Dy-tMe" firstAttribute="centerX" secondItem="XJs-Dm-8it" secondAttribute="centerX" id="KDx-jT-G9b"/>
                             <constraint firstItem="M8k-yt-5gl" firstAttribute="bottom" secondItem="XJs-Dm-8it" secondAttribute="bottom" constant="110" id="R7S-lU-Ulx"/>
                             <constraint firstItem="M8k-yt-5gl" firstAttribute="trailing" secondItem="WK2-wf-xVC" secondAttribute="trailing" constant="20" id="aLx-Ip-jQQ"/>
+                            <constraint firstItem="XJs-Dm-8it" firstAttribute="top" secondItem="lJS-Dy-tMe" secondAttribute="bottom" constant="20" id="bEo-1o-GMa"/>
                             <constraint firstItem="mJi-oa-jjx" firstAttribute="top" secondItem="M8k-yt-5gl" secondAttribute="top" constant="15" id="eDe-jO-FDX"/>
                             <constraint firstItem="M8k-yt-5gl" firstAttribute="trailing" secondItem="XJs-Dm-8it" secondAttribute="trailing" constant="40" id="fTm-Jq-sOF"/>
                             <constraint firstItem="mJi-oa-jjx" firstAttribute="leading" secondItem="M8k-yt-5gl" secondAttribute="leading" constant="20" id="mZo-5U-em0"/>
@@ -237,6 +255,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M8k-yt-5gl"/>
                         <connections>
+                            <outlet property="currentWeekLabel" destination="lJS-Dy-tMe" id="Hfj-Od-q8b"/>
                             <outlet property="nextWeekButton" destination="WK2-wf-xVC" id="ruM-ta-lWb"/>
                             <outlet property="previousWeekButton" destination="mJi-oa-jjx" id="Yol-Qz-qTf"/>
                             <outlet property="tableView" destination="XJs-Dm-8it" id="ki7-mS-9ns"/>
@@ -367,7 +386,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="dateLebel" destination="Lr1-gf-J9x" id="Hjb-UB-1bl"/>
+                                            <outlet property="dateLabel" destination="Lr1-gf-J9x" id="gSL-Qm-NOO"/>
                                             <outlet property="opponentLabel" destination="nBb-iw-1mI" id="bP0-fa-3kR"/>
                                         </connections>
                                     </tableViewCell>

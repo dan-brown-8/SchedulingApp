@@ -123,10 +123,29 @@ class LeagueOverviewDataModel {
                 pool.teams[index].teamName = newName
             }
         }
+        
         // Update the league to register the name change
         league[poolNumber] = pool
         setLeagueOverview(leagueOverview : league)
         
+        var schedule = self.getSchedule()
+        
+        // Find the team in the schedule and set it's new name
+        for (index, game) in schedule.enumerated() {
+            if (game.team1.teamName == oldName) {
+                print("\(game.team1.teamName)")
+                print(index)
+                schedule[index].team1.teamName = newName
+            }
+            if (game.team2.teamName == oldName) {
+                print("\(game.team2.teamName)")
+                print(index)
+                schedule[index].team2.teamName = newName
+            }
+        }
+        
+        self.setSchedule(schedule: schedule)
+         
  //       return true
     }
     
@@ -252,14 +271,36 @@ class LeagueOverviewDataModel {
             }
         }
         
-        print(schedule)
-        print(schedule.count)
+     //   print(schedule)
+      //  print(schedule.count)
         
         /// Randomize the games on the schedule
         schedule = schedule.shuffled()
         
         self.setSchedule(schedule : schedule)
         
+    }
+    
+    public func createTeamSchedule(teamName: String) -> [Any] {
+        var teamScheduleData : [Any] = [Any]()
+        
+        // Find the team in the schedule and set it's new name
+        for (index, game) in schedule.enumerated() {
+            if (game.team1.teamName == teamName) {
+              //  print("\(game.team1.teamName)")
+              //  print(index)
+                teamScheduleData.append(index)
+                teamScheduleData.append(game.team2.teamName)
+            }
+            if (game.team2.teamName == teamName) {
+              //  print("\(game.team2.teamName)")
+               // print(index)
+                teamScheduleData.append(index)
+                teamScheduleData.append(game.team1.teamName)
+            }
+        }
+     //   print(teamScheduleData)
+        return teamScheduleData
     }
     
 }
@@ -302,8 +343,8 @@ struct League {
 }
 
 struct Game {
-    let team1: Team
-    let team2: Team
+    var team1: Team
+    var team2: Team
  //   let timeSlot: Int // 5 total timeslots: 3 on saturday 2 on sunday
     //let weekNumber: Int
  /*  Available in more advanced versions

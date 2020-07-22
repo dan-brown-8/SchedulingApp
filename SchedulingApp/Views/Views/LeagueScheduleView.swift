@@ -13,9 +13,11 @@ class LeagueScheduleView: UIView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var previousWeekButton: UIButton!
     @IBOutlet weak var nextWeekButton: UIButton!
-    
+    @IBOutlet weak var currentWeekLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Hide that button initially
+        previousWeekButton.isHidden = true
     }
 }
