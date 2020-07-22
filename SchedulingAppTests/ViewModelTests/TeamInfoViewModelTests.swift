@@ -61,7 +61,7 @@ class TeamInfoViewModelTests: XCTestCase {
     public func testConvertDateValueToString() {
         teamInfoViewModel.convertDateValueToString(datesArray: [10, 17, 25])
         
-        XCTAssertEqual(teamInfoViewModel.gameDateArray[0], "Week 2, Day 1, Game 1")
+        XCTAssertEqual(teamInfoViewModel.gameDateArray[0], "Week 3, Day 1, Game 1")
     }
     
     public func testConvertTimeslotNumberToString() {

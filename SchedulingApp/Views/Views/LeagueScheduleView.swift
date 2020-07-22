@@ -19,5 +19,7 @@ class LeagueScheduleView: UIView {
         super.awakeFromNib()
         // Hide that button initially
         previousWeekButton.isHidden = true
+        
+        Borders.createBorders(tableName: tableView)
     }
 }

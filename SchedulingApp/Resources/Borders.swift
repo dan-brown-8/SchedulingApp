@@ -14,11 +14,7 @@ class Borders {
     static let THIN_BORDER_SIZE = CGFloat(0.3)
     static let NORMAL_BORDER_SIZE = CGFloat(1)
     static let BORDER_COLOR = UIColor.black.cgColor
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
     //Function that allows you to customize a button
     static func createBorders(buttonName: UIButton) {
         buttonName.layer.borderWidth = NORMAL_BORDER_SIZE

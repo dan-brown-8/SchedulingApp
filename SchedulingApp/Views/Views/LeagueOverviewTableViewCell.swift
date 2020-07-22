@@ -23,8 +23,8 @@ class LeagueOverviewTableViewCell : UITableViewCell {
         super.awakeFromNib()
         self.delegate = nil
         
-       // FormatButton.makeRound(button: detailsButton, cornerRadius: 10)
-       // Borders.createThinBorders(buttonName: detailsButton)
+        FormatButton.makeRound(button: detailsButton, cornerRadius: 5)
+        Borders.createThinBorders(buttonName: detailsButton)
 
     }
     

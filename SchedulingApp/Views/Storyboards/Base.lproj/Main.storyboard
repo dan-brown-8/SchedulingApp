@@ -75,6 +75,7 @@
                                                 <constraint firstItem="baC-mW-SjZ" firstAttribute="top" secondItem="4wk-Ny-oub" secondAttribute="top" constant="10" id="JSe-HK-csZ"/>
                                                 <constraint firstItem="Gui-nF-RcN" firstAttribute="leading" secondItem="4wk-Ny-oub" secondAttribute="leading" constant="15" id="L8z-de-kso"/>
                                                 <constraint firstAttribute="bottom" secondItem="baC-mW-SjZ" secondAttribute="bottom" constant="10" id="Vnh-kl-2hl"/>
+                                                <constraint firstItem="Gui-nF-RcN" firstAttribute="width" secondItem="baC-mW-SjZ" secondAttribute="width" multiplier="1.97368" id="WeO-4d-hDN"/>
                                                 <constraint firstAttribute="trailing" secondItem="baC-mW-SjZ" secondAttribute="trailing" constant="10" id="eV5-Qu-eBM"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gui-nF-RcN" secondAttribute="bottom" id="tfp-Fj-qWn"/>
                                                 <constraint firstItem="baC-mW-SjZ" firstAttribute="leading" secondItem="Gui-nF-RcN" secondAttribute="trailing" constant="10" id="vJo-hH-HCI"/>
@@ -155,7 +156,7 @@
                                     <action selector="nextWeekPressed:" destination="wcc-a3-Rbb" eventType="touchUpInside" id="cB0-wa-jxI"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Dm-8it">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-Dm-8it">
                                 <rect key="frame" x="40" y="218" width="334" height="534"/>
                                 <color key="backgroundColor" red="0.93202825700000003" green="0.93202825700000003" blue="0.93202825700000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -190,20 +191,20 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Lui-07-nhW" customClass="LeagueScheduleTableViewCell" customModule="SchedulingApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="93" width="334" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lui-07-nhW" id="8kZ-yU-ugd">
-                                            <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1, Game 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDg-8k-Dxq" userLabel="Date Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="142" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="142" height="60"/>
                                                     <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Bears v Cowboys" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGE-7c-tkg" userLabel="Opponent Label">
-                                                    <rect key="frame" x="142" y="0.0" width="192" height="50"/>
+                                                    <rect key="frame" x="142" y="0.0" width="192" height="60"/>
                                                     <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
