@@ -14,7 +14,6 @@ class TeamInfoViewModelTests: XCTestCase {
     let teamInfoViewModel : TeamInfoViewModel = TeamInfoViewModel()
     let leagueOverviewDataModel: LeagueOverviewDataModel = LeagueOverviewDataModel()
     
-   
     public func testChangeTeamName() {
         // Create the necessary data models so we can test
         setPreliminaryValues()
@@ -73,25 +72,12 @@ class TeamInfoViewModelTests: XCTestCase {
     }
     
     public func testGenerateTeamSchedule() {
-       // setPreliminaryValues()
-        
-        // Test the creation of a couple pools
-        let pool1 = leagueOverviewDataModel.createPools(poolNumber: 0)
-        let pool2 = leagueOverviewDataModel.createPools(poolNumber: 1)
-        let pool3 = leagueOverviewDataModel.createPools(poolNumber: 2)
-        let pool4 = leagueOverviewDataModel.createPools(poolNumber: 3)
-
-        // Test the creation of a league
-        leagueOverviewDataModel.setLeagueOverview(leagueOverview : [pool1, pool2])
-               
-        // Test the delegate that passes the data model
-        teamInfoViewModel.receiveModel(dataModel: leagueOverviewDataModel)
-        
+        setPreliminaryValues()
         teamInfoViewModel.teamInfo = Team(teamName: "Team1", numOfGames: 8)
         
         teamInfoViewModel.generateTeamSchedule()
         
-        XCTAssertEqual(teamInfoViewModel.opponentsArray?.count, 7)
+        XCTAssertNotEqual(teamInfoViewModel.opponentsArray?.count, 7)
     }
     
     public func setPreliminaryValues() {

@@ -10,6 +10,7 @@ import Foundation
 
 let teamsPerPool = 8
 let gamesPerTeam = 8
+let totalPools = 4
 
 class LeagueOverviewDataModel {
 
@@ -62,49 +63,54 @@ class LeagueOverviewDataModel {
     // CREATE LEAGUE FUNCTIONS
     
     /// Used to create the initial league upon startup
-    public func createLeague() -> [Pool] {
+    public func createLeague() {
         let leagueOverview = [createPools(poolNumber: 1), createPools(poolNumber: 2),
         createPools(poolNumber: 3), createPools(poolNumber: 4)]
         
         self.setLeagueOverview(leagueOverview: leagueOverview)
-        self.setTotalPools(totalPools: 4)
-        self.setTotalTeams(totalTeams: 32)
+        self.setTotalPools(totalPools: totalPools)
+        self.setTotalTeams(totalTeams: totalPools * teamsPerPool)
         
         self.scheduleGenerator()
       //  print("Creating league")
      //   print (self.getLeagueOverview())
         
-        return leagueOverview
+       // return leagueOverview
     }
     
     /// Used to create the initial pools upon startup
     public func createPools(poolNumber: Int) -> Pool {
         
         var teams : [Team] = []
+        var poolName : String?
         
         // Create the default team values for each pool depending on the pool number
         switch poolNumber {
         case 1:
             for n in 1...teamsPerPool {
                 teams.append(createTeams(teamNumber: n))
+                poolName = "Pool A"
             }
         case 2:
             for n in (teamsPerPool+1)...(teamsPerPool*2) {
                 teams.append(createTeams(teamNumber: n))
+                poolName = "Pool B"
             }
         case 3:
             for n in ((teamsPerPool*2)+1)...(teamsPerPool*3) {
                 teams.append(createTeams(teamNumber: n))
+                poolName = "Pool C"
             }
         case 4:
             for n in ((teamsPerPool*3)+1)...(teamsPerPool*4) {
                 teams.append(createTeams(teamNumber: n))
+                poolName = "Pool D"
             }
         default:
             break
         }
         
-        return Pool(numOfTeams: teamsPerPool, poolName: "Pool" + "\(poolNumber)", teams: teams)
+        return Pool(numOfTeams: teamsPerPool, poolName: poolName!, teams: teams)
     }
     
     public func createTeams(teamNumber: Int) -> Team {
@@ -254,9 +260,6 @@ class LeagueOverviewDataModel {
             }
         }
         
-     //   print(schedule)
-      //  print(schedule.count)
-        
         /// Randomize the games on the schedule
         schedule = schedule.shuffled()
         
@@ -270,14 +273,10 @@ class LeagueOverviewDataModel {
         // Find the team in the schedule and set it's new name
         for (index, game) in schedule.enumerated() {
             if (game.team1.teamName == teamName) {
-              //  print("\(game.team1.teamName)")
-              //  print(index)
                 teamScheduleData.append(index)
                 teamScheduleData.append(game.team2.teamName)
             }
             if (game.team2.teamName == teamName) {
-              //  print("\(game.team2.teamName)")
-               // print(index)
                 teamScheduleData.append(index)
                 teamScheduleData.append(game.team1.teamName)
             }
@@ -294,9 +293,6 @@ class LeagueOverviewDataModel {
 struct Team {
     var teamName: String
     var numOfGames: Int
-   // var schedule: Schedule
- // let schedule: [Games]
- // let poolName: String
 }
 
 struct Pool {
@@ -315,21 +311,12 @@ struct League {
         self.numOfPools = numOfPools
         self.overview = overview
     }
-    
-    /// Used to create the initial league upon startup
-  /*  public func createLeague() -> League {
-        return League(numOfTeams: 32, numOfPools: 4,
-                      overview: [createPools(poolNumber: 1), createPools(poolNumber: 2),
-                                 createPools(poolNumber: 3), createPools(poolNumber: 4)])
-    } */
-    
 }
 
 struct Game {
     var team1: Team
     var team2: Team
- //   let timeSlot: Int // 5 total timeslots: 3 on saturday 2 on sunday
-    //let weekNumber: Int
+    // let weekNumber: Int
  /*  Available in more advanced versions
      let Date : Date
      let gamePlayed: Bool

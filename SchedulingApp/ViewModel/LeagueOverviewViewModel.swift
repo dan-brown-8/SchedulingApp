@@ -6,13 +6,7 @@
 //  Copyright © 2020 Dan Brown. All rights reserved.
 //
 
-/*var leagueOverviewViewModel: LeagueOverviewViewModel = LeagueOverviewViewModel(
-    [MessierViewModel(messierDataModel: Messier1),
-     MessierViewModel(messierDataModel: Messier8),
-     MessierViewModel(messierDataModel: Messier57)] */
 import Foundation
-
-//var leagueOverviewViewModel: [LeagueOverviewViewModel] = [leagueOverviewViewModel(leagueOverviewDataModel: Messier1)]
 
 protocol PassModelToNextViewModelDelegate : class {
     func receiveModel(dataModel: LeagueOverviewDataModel)
@@ -22,9 +16,6 @@ class LeagueOverviewViewModel {
     
     private let leagueOverviewDataModel: LeagueOverviewDataModel = LeagueOverviewDataModel()
     
-    // Am i using this?
-    private var pool: [Team]?
-    
     /// The pool that was chosen by the user through the pickerview
     var poolNumber : Int?
     var poolName : String?
@@ -33,43 +24,15 @@ class LeagueOverviewViewModel {
         
     weak var delegate : PassModelToNextViewModelDelegate?
 
-    /// The pool data that corresponds to the user selected pool
- //   var selectedPoolData : [Team]?
-        
-/*    init() {
-        totalTeams = 0
-        totalPools = 0
-        leagueOverview = []
-    } */
-    
- //   private var totalTeams : Int
-  //  private var totalPools : Int
-  //  private var leagueOverview : [Pool]
-
-   /* init(leagueOverviewDataModel: LeagueOverviewDataModel)
-    {
-        self.leagueOverviewDataModel = leagueOverviewDataModel
-    } */
-    
-    
-    
- /*   public var league: League {
-        return League(numOfTeams: 8, numOfPools: 4, overview: leagueOverviewDataModel.createLeague())
-    }
-    
-    public var leagueOverview: [Pool] {
-        return leagueOverviewDataModel.createLeague()
-    } */
-    
     /// Called to create the initial league before any user changes
-    public func createTheLeague() -> [Pool]{
-        return self.leagueOverviewDataModel.createLeague()
+    public func createTheLeague() {
+        self.leagueOverviewDataModel.createLeague()
     }
     
     /// Returns the size of the pool that was selected by the user
     public func sizeOfPool() -> Int{
         let league = self.leagueOverviewDataModel.getLeagueOverview
-      //  print("\(league()[self.poolNumber].numOfTeams)")
+
         if self.poolNumber != nil  {
          //   print("Populate")
             return league()[self.poolNumber!].numOfTeams
