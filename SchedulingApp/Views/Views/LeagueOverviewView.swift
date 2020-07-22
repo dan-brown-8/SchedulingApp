@@ -15,9 +15,6 @@ class LeagueOverviewView: UIView, UITextFieldDelegate {
     @IBOutlet weak var tableView: UITableView!
 
     let poolPicker = UIPickerView()
-    
-    // TODO: Change this so it is scalable
- //   let poolOptions = ["Pool A", "Pool B", "Pool C", "Pool D"]
         
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +26,7 @@ class LeagueOverviewView: UIView, UITextFieldDelegate {
         selectPoolTextField.delegate = self
             
         // Change the placeholder text color to black
-        selectPoolTextField.attributedPlaceholder = NSAttributedString(string: "Select Size",
+        selectPoolTextField.attributedPlaceholder = NSAttributedString(string: "Select Pool",
                                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         }
         

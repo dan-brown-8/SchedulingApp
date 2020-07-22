@@ -60,8 +60,10 @@ extension TeamInfoVC : UITableViewDataSource {
         }
         
         cell.dateLabel.text = teamInfoViewModel?.gameDateArray[indexPath.row]
+        cell.dateLabel.adjustsFontSizeToFitWidth = true
         cell.opponentLabel.text = teamInfoViewModel?.opponentsArray?[indexPath.row]
-        
+        cell.opponentLabel.adjustsFontSizeToFitWidth = true
+
         return cell
     }
     

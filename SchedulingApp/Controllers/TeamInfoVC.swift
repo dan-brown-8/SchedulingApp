@@ -40,6 +40,11 @@ class TeamInfoVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        if (teamInfoView.selectPoolTextField.text != teamInfoViewModel?.poolName) {
+            print("Add team to new pool")
+            self.teamInfoViewModel!.changePool()
+        }
+        
         // If the team name has changed, perform the necessary functions
         if (self.teamInfoViewModel!.teamInfo!.teamName != self.teamInfoView.teamNameTextField.text && self.teamInfoView.teamNameTextField.text != "") {
             
@@ -98,9 +103,24 @@ class TeamInfoVC: UIViewController {
             
             // If the pool number has changed, perform the necessary functions
             if (self.teamInfoViewModel?.poolNumber != self.teamInfoViewModel?.originalPoolNumber) {
-                print("Update the league to show that the pool has changed")
+                // Update the league to show that the pool has changed
                 
-                self.teamInfoViewModel!.changePool()
+                // Send a quick warning
+                let alert = UIAlertController(title: "Warning! Altering pool sizes may impact scheduling", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Continue", style: .destructive, handler: { action in
+                    
+                    self.view.endEditing(true)
+                   
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                    
+                    print(self.teamInfoViewModel!.originalPoolNumber!)
+                    self.teamInfoViewModel?.poolNumber = self.teamInfoViewModel?.originalPoolNumber
+                    self.teamInfoView.selectPoolTextField.text = self.teamInfoViewModel?.poolName
+                    self.view.endEditing(true)
+                }))
+                self.present(alert, animated: true, completion: nil)
+
             }
                 
             teamInfoView.tableView.reloadData()

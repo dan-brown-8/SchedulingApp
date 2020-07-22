@@ -72,10 +72,6 @@ class LeagueOverviewDataModel {
         self.setTotalTeams(totalTeams: totalPools * teamsPerPool)
         
         self.scheduleGenerator()
-      //  print("Creating league")
-     //   print (self.getLeagueOverview())
-        
-       // return leagueOverview
     }
     
     /// Used to create the initial pools upon startup
@@ -125,9 +121,6 @@ class LeagueOverviewDataModel {
         // Find the team in the pool and set it's new name
         for (index, team) in pool.teams.enumerated() {
             if (team.teamName == oldName) {
-             //  print("\(team.teamName)")
-              //  print("\(pool.teams[index].teamName)")
-              //  print(index)
                 pool.teams[index].teamName = newName
             }
         }
@@ -154,7 +147,6 @@ class LeagueOverviewDataModel {
         
         self.setSchedule(schedule: schedule)
          
- //       return true
     }
     
     public func updatePools(oldPoolNumber: Int, newPoolNumber: Int, teamName: String) {
@@ -270,7 +262,7 @@ class LeagueOverviewDataModel {
     public func createTeamSchedule(teamName: String) -> [Any] {
         var teamScheduleData : [Any] = [Any]()
         
-        // Find the team in the schedule and set it's new name
+        // Find the team in the schedule and create their individual schedule
         for (index, game) in schedule.enumerated() {
             if (game.team1.teamName == teamName) {
                 teamScheduleData.append(index)
@@ -281,7 +273,6 @@ class LeagueOverviewDataModel {
                 teamScheduleData.append(game.team1.teamName)
             }
         }
-     //   print(teamScheduleData)
         return teamScheduleData
     }
     

@@ -38,8 +38,6 @@ class LeagueScheduleVC: UIViewController {
             self.alterButtons(weekArray: leagueScheduleViewModel!.adjustButtons(adjustment: -1))
             leagueScheduleView.tableView.reloadData()
         }
-         //   leagueScheduleViewModel.
-                // leagueScheduleView.
             
     }
     
@@ -48,8 +46,6 @@ class LeagueScheduleVC: UIViewController {
         leagueScheduleView.previousWeekButton.isHidden = false
         
         self.alterButtons(weekArray: leagueScheduleViewModel!.adjustButtons(adjustment: 1))
-        
-        //leagueScheduleView.tableView.cell.matchupLabel.text = leagueScheduleViewModel!.formatMatchupData(timeSlot: 1)
         leagueScheduleView.tableView.reloadData()
     }
         

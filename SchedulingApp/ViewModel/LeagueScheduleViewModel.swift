@@ -27,11 +27,11 @@ class LeagueScheduleViewModel: PassModelToNextViewModelDelegate {
         }
         
         let schedule = leagueOverviewDataModel?.getSchedule()
-        print(schedule)
+        //print(schedule)
         let team1 = schedule![gameNumber].team1.teamName
         let team2 = schedule![gameNumber].team2.teamName
         
-        print("\(team1 + " v " + team2)")
+        //print("\(team1 + " v " + team2)")
         
         return "\(team1 + " v " + team2)"
         

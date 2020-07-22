@@ -28,18 +28,6 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
     var gameDateArray : [String] = [String]()
     /// Holds all of the opponents from the team schedule
     var opponentsArray : [String]?
-        
-    // Initialize our data model so it can be used in this viewModel
-   /* init(leagueOverviewDataModel: LeagueOverviewDataModel) {
-        self.leagueOverviewDataModel = leagueOverviewDataModel
-    }*/
-  /*  func displayTeamName() -> String {
-        return teamInfo!.teamName
-    }
-    
-    func displayPoolName() -> String {
-        return poolName ?? ""
-    } */
     
     func generateTeamSchedule() {
         let dataArray = leagueOverviewDataModel!.createTeamSchedule(teamName: teamInfo!.teamName)
@@ -63,7 +51,7 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
             
             let timeslotString = convertTimeslotNumberToString(timeslot: timeslotNum)
             
-            self.gameDateArray.append("Week " + "\(week), " + timeslotString)
+            self.gameDateArray.append("Week " + "\(week+1), " + timeslotString)
           //  print(self.gameDateArray)
 
         }
@@ -90,9 +78,6 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
     }
     
     func changeTeamName(newName: String) {
-      //  print(teamInfo!.teamName)
-       // print(newName)
-       // print(self.poolNumber)
         leagueOverviewDataModel!.updateTeamName(oldName: teamInfo!.teamName, newName: newName, poolNumber: self.poolNumber!)
     }
     

@@ -55,10 +55,6 @@ class LeagueOverviewVC: UIViewController {
             let viewController = segue.destination as? LeagueScheduleVC
             
             viewController?.leagueScheduleViewModel = LeagueScheduleViewModel()
-           // viewController?.teamInfoViewModel!.teamInfo = self.leagueOverviewViewModel.teamInfo
-          //  viewController?.teamInfoViewModel!.poolName = leagueOverviewView.selectPoolTextField.text
-          //  viewController?.teamInfoViewModel!.poolNumber = self.leagueOverviewViewModel.poolNumber
-            //viewController?.teamInfoViewModel!.originalPoolNumber = self.leagueOverviewViewModel.poolNumber
             viewController?.leagueScheduleViewModel!.leagueOverviewViewModel = self.leagueOverviewViewModel
             viewController?.leagueScheduleViewModel!.leagueOverviewViewModel?.delegate = viewController?.leagueScheduleViewModel!
             
