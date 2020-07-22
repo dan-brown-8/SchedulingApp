@@ -8,6 +8,9 @@
 
 import Foundation
 
+let teamsPerPool = 8
+let gamesPerTeam = 8
+
 class LeagueOverviewDataModel {
 
     init() {
@@ -82,34 +85,33 @@ class LeagueOverviewDataModel {
         // Create the default team values for each pool depending on the pool number
         switch poolNumber {
         case 1:
-            for n in 1...8 {
+            for n in 1...teamsPerPool {
                 teams.append(createTeams(teamNumber: n))
             }
         case 2:
-            for n in 9...16 {
+            for n in (teamsPerPool+1)...(teamsPerPool*2) {
                 teams.append(createTeams(teamNumber: n))
             }
         case 3:
-            for n in 17...24 {
+            for n in ((teamsPerPool*2)+1)...(teamsPerPool*3) {
                 teams.append(createTeams(teamNumber: n))
             }
         case 4:
-            for n in 25...32 {
+            for n in ((teamsPerPool*3)+1)...(teamsPerPool*4) {
                 teams.append(createTeams(teamNumber: n))
             }
         default:
             break
         }
         
-        return Pool(numOfTeams: 8, poolName: "Pool" + "\(poolNumber)", teams: teams)
+        return Pool(numOfTeams: teamsPerPool, poolName: "Pool" + "\(poolNumber)", teams: teams)
     }
     
     public func createTeams(teamNumber: Int) -> Team {
-        return Team(teamName: "Team" + "\(teamNumber)", numOfGames: 8)
+        return Team(teamName: "Team" + "\(teamNumber)", numOfGames: gamesPerTeam)
     }
     
     public func updateTeamName(oldName: String, newName: String, poolNumber: Int) {
-        print(poolNumber)
        // print(self.getLeagueOverview())
         var league = self.getLeagueOverview()
         var pool = league[poolNumber]
@@ -117,9 +119,9 @@ class LeagueOverviewDataModel {
         // Find the team in the pool and set it's new name
         for (index, team) in pool.teams.enumerated() {
             if (team.teamName == oldName) {
-                print("\(team.teamName)")
-                print("\(pool.teams[index].teamName)")
-                print(index)
+             //  print("\(team.teamName)")
+              //  print("\(pool.teams[index].teamName)")
+              //  print(index)
                 pool.teams[index].teamName = newName
             }
         }
@@ -175,21 +177,6 @@ class LeagueOverviewDataModel {
         setLeagueOverview(leagueOverview : league)
     }
     
-   /* public func findTeamInPool(pool: Pool, name: String) {
-        
-        // Iterate through pool and find team
-        for (index, team) in pool.teams.enumerated() {
-            if (team.teamName == oldName) {
-             //   print("\(team.teamName)")
-              //  print("\(pool.teams[index].teamName)")
-                print(index)
-                pool.teams[index].teamName = newName
-            //    team.teamName = newName
-              //  index+=1
-            }
-        }
-    } */
-    
     /// Use this function to add additional pools to the league
   /*  public func addPool(numOfTeams: Int, poolName: String, teams: [Team]) {
            
@@ -214,12 +201,8 @@ class LeagueOverviewDataModel {
         var schedule : [Game] = []
         
         var league = getLeagueOverview()
-        
-       // poolNum : 0 - 3 // Number of pools in the league
-       // teamNum : 0 - 6 // Number of teams in a pool
 
         var teamNum = 0
-        
 
         var team1 : Team?
         var team2 : Team?

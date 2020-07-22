@@ -49,13 +49,12 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
         
         // Grab all odd values from the array
         self.opponentsArray = (stride(from: 1, to: dataArray.count, by: 2).map { dataArray[$0] }) as? [String]
-        
+                
         convertDateValueToString(datesArray: datesArray as! [Int])
     }
     
     /// Converts the numeric date value to a value that we can use to display to the user
     func convertDateValueToString(datesArray: [Int]) {
-        print("Convert")
         
         for n in 0...datesArray.count - 1 {
             let dateNum = datesArray[n]
@@ -64,13 +63,8 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
             
             let timeslotString = convertTimeslotNumberToString(timeslot: timeslotNum)
             
-            print(dateNum)
-            print(week)
-            print(timeslotNum)
-            print(timeslotString)
-            
             self.gameDateArray.append("Week " + "\(week), " + timeslotString)
-            print(self.gameDateArray)
+          //  print(self.gameDateArray)
 
         }
 
@@ -96,6 +90,9 @@ class TeamInfoViewModel: PassModelToNextViewModelDelegate {
     }
     
     func changeTeamName(newName: String) {
+      //  print(teamInfo!.teamName)
+       // print(newName)
+       // print(self.poolNumber)
         leagueOverviewDataModel!.updateTeamName(oldName: teamInfo!.teamName, newName: newName, poolNumber: self.poolNumber!)
     }
     

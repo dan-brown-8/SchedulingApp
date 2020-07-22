@@ -19,7 +19,7 @@ class LeagueScheduleViewModel: PassModelToNextViewModelDelegate {
 
     /// Gathers and formats the matchup data to be shown on the schedule
     func formatMatchupData(timeSlot: Int) -> String {
-        /// Calculate the game number
+        /// Calculate the game number. Example: game number of 45 means that the game is the 45th game played
         let gameNumber = ((week - 1) * 5) + timeSlot
         
         if (gameNumber > 127) {
@@ -27,6 +27,7 @@ class LeagueScheduleViewModel: PassModelToNextViewModelDelegate {
         }
         
         let schedule = leagueOverviewDataModel?.getSchedule()
+        print(schedule)
         let team1 = schedule![gameNumber].team1.teamName
         let team2 = schedule![gameNumber].team2.teamName
         

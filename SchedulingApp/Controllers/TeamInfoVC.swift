@@ -47,10 +47,6 @@ class TeamInfoVC: UIViewController {
         }
 
     }
-    
-  /* override func viewDidAppear(_ animated: Bool) {
-        teamInfoView.tableView.reloadData()
-    } */
 
     // TODO: CAN I MOVE THIS OUT?
     /// Creates all of the pickers to be used in the VC
